@@ -1,0 +1,20 @@
+body{}
+.main_user{display:none;}
+.main-wapper{width:90%;}
+.main_m{width:100%;margin-left:0px;height:2900px;}
+.main_m1:nth-child(1){top:0px;opacity: 1;}
+.main_m1:nth-child(2){top:580px;opacity: 1;}
+.main_m1:nth-child(3){top:1160px;opacity: 1;}
+.main_m1:nth-child(4){top:1740px;opacity: 1;}
+.main_m1:nth-child(5){top:2320px;opacity: 1;}
+.main_m1{width:94%;padding:3%; transform: scale(1);}
+.person-about span.value{width: 100%;}
+.main_nav{display:none;}
+.pro-bgmoving{height:100%;}
+.i_can_l li .pro-item{left:0px;opacity: 1;}
+.pro-desc-txt{left:0px;opacity: 1;}
+.form-control{padding:6px;}
+.pro-desc-txt{line-height:23px;}
+.person-about i.fa, .person-about label{display:none;}
+.workExp-duration{display:none;}
+.dialog span{font-size:14rem;}

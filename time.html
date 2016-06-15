@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>径向动画时针效果</title>
+</head>
+<script src="js/jquery-1.8.3.min.js"/></script>
+<script>
+$(function(){
+	function init(){
+		drawLines($('.line-min'),60,85);
+		drawLines($('.line-hour'),12,80);
+		drawNumbers($('.number'));
+		move()
+	}
+	init();
+	
+	function drawLines(wrap,total,trabslateX){
+		var gap=360/total;
+		var strHtml='';
+		for(var i=0; i<total; i++){
+			strHtml+='<li style="transform:rotate('+(i*gap)+'deg) translate('+trabslateX+'px,-50%)"></li>'
+		}
+		wrap.html(strHtml);
+	}
+	function drawNumbers(wrap){
+		var radius=wrap.width()/2;
+		var strHtml='';
+		for(var i=1; i<=12;i++){
+			var myAngle=(i-3)/6*Math.PI;
+			var myx=radius+radius*Math.cos(myAngle);
+			var myy=radius+radius*Math.sin(myAngle);
+			strHtml+='<li style="left:'+myx+'px; top:'+myy+'px">'+i+'</li>';
+		}
+		wrap.html(strHtml);
+	}
+	function move(){
+		var domHour=$('.hour');
+		var domMin=$('.min');
+		var domSec=$('.sec');
+		time();
+		setInterval(function(){time()} ,1000);
+		function time(){
+			var now=new Date(),
+				hour=now.getHours(),
+				min=now.getMinutes(),
+				sec=now.getSeconds();
+				
+			var secAngle=sec*6-90,
+				minAngle=min*6+sec*0.1-90,
+				hourAngle=hour*30+min*0.5-90;
+				
+			domSec.css('transform','rotate('+secAngle+'deg)');
+			domMin.css('transform','rotate('+minAngle+'deg)');
+			domHour.css('transform','rotate('+hourAngle+'deg)');
+		}
+	}
+})
+</script>
+<body>
+<style>
+ul, ol{ padding:0px; margin:0px;}
+li{ list-style:none;}
+.clock{ position: relative; width:200px; height:200px; border-radius:100%; background:#292a38; margin:50px auto;}
+.clock li.circle{ position:absolute; top:50%; left:50%; background:#fff; width:10px; height:10px; border-radius:100%;transform:translate(-50%,-50%); transform-origin:left center;}
+.line-hour li, .line-min li{position:absolute; left:50%; top:50%;transform-origin:left center; background:#fff;}
+.line-hour li{ width:10px; height:2px;}
+.line-min li{ width:5px; height:2px;}
+.number{ position:absolute; width:150px; height:150px; left:50%; top:50%;transform:translate(-50%,-50%); font-size:15px; color:#fff;}
+.number li{ position:absolute;transform:translate(-50%,-50%);}
+.pointer li{ position:absolute; left:50%; top:50%; background:#fff;transform-origin:left center;}
+.pointer li.hour{ width:45px; height:3px; margin-top:-1px;}
+.pointer li.min{ width:60px; height:2px; margin-top:-1px;}
+.pointer li.sec{ width:80px; height:1px; margin-top:-1px;}
+</style>
+<div class="clock">
+	<ul class="line-min">
+    	
+    </ul>
+    <ul class="line-hour">
+    	<!--<li class="line-demo"></li>-->
+    </ul>
+    <ol class="number">
+    	
+    </ol>
+    <ul class="pointer">
+    	<li class="hour"></li>
+        <li class="min"></li>
+        <li class="sec"></li>
+        <li class="circle"></li>
+    </ul>
+</div>
+</body>
+</html>

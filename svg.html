@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title></title>
+</head>
+<body style='background:green'>
+
+<svg id='svg' width="100%" height="600" xmlns="http://www.w3.org/2000/svg">
+	
+</svg>
+<script>
+var ns='http://www.w3.org/2000/svg';
+var body=document.getElementsByTagName('body')[0];
+var svg=document.getElementById('svg');
+
+var line=null;
+var num='';
+
+function createTag(tag,obj){
+	var tag=document.createElementNS(ns,tag);
+	for(var i in obj){
+		tag.setAttribute(i,obj[i]);
+	}
+	return tag
+}
+svg.onmousedown=function(){
+	var e=e||window.event;
+	if(!line){
+		line=createTag('polyline',{'fill':'none','stroke':'red','stroke-width':'2'});
+		svg.appendChild(line);
+	}
+	var x=e.clientX-svg.offsetLeft;
+	var y=e.clientY-svg.offsetTop;
+	if(num==''){
+		num=x+','+y;
+	}else{
+		num+=','+x+','+y;
+	}
+	line.setAttribute('points',num);
+	
+	var circle=createTag('circle',{'cx':x,'cy':y,'r':5,'fill':'white','stroke':'red','stroke-width':3})
+	svg.appendChild(circle);
+}
+svg.onmousemove=function(){
+	var e=e||window.event;
+	if(line){
+		var x=e.clientX-svg.offsetLeft;
+		var y=e.clientY-svg.offsetTop;
+		line.setAttribute('points',num+','+x+','+y);
+	}
+}
+svg.oncontextmenu=function(){
+	svg.onmousemove=null;
+	return false;
+}
+</script>
+</body>
+</html>

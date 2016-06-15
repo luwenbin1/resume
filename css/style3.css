@@ -1,0 +1,36 @@
+body{min-width:306px;}
+.changeSkin{display:none;}
+.main-wapper{width:auto;margin:10px;margin-top:45px;}
+.main_nav{float:none;width:100%;overflow:hidden;}
+.main_nav li{width:20%;text-align:center;float:left;padding:10px 0px;}
+.main_nav li span{display:none;}
+.main_nav li a{display:block;color:#fff;font-size:16rem;}
+.main_nav li.active a{color:#3b5998;}
+.main_m{min-height:600px;}
+
+
+
+.main_user{display:none;}
+.main-wapper{width:95%;margin:auto;margin-top: 45px;}
+.main_m{width:100%;margin-left:0px;}
+.main_m1{width:94%;padding:3%; transform: scale(1);}
+.person-about span.value{width: 100%;}
+.main_nav{display:block;}
+.pro-bgmoving{height:100%;}
+.i_can_l li .pro-item{left:0px;opacity: 1;}
+.pro-desc-txt{left:0px;opacity: 1;overflow:hidden;}
+.form-control{padding:6px;}
+.pro-desc-txt{line-height:23px;}
+.person-about i.fa, .person-about label{display:none;}
+.workExp-duration{display:none;}
+.dialog span{font-size:10rem;}
+.top-fix_m a{font-size:12rem;}
+.person-title p{padding-left: 10px;}
+.content-title{padding:10px;font-size:16rem;}
+.i_can_l li .pro-item{height:auto;font-size:12rem;}
+.content-saythings input[type=reset]{background:none;}
+.content-saythings input[type=submit]{background:none;}
+.works a span{font-size:10rem;}
+.workExp-list p{    max-height: 30px; line-height:15px; overflow: hidden;}
+.wordbox{height:23px;margin-top:15px;}
+.wordbox img{width:23px;}
