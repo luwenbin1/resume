@@ -11,7 +11,7 @@
 <script>
 $(function(){
     function a(){
-        var n = "13"+String(new Date().getTime()).substr(4)
+        var n = "13"+String(new Date().getTime()*Math.random()).substr(2,9)
         $.ajax({
             url:"http://server.lexivip.com/lxServer/v1/user/sendCode?phonePre=86&phone="+ n +"&type=1",
             async:false,
