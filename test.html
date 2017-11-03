@@ -17,11 +17,12 @@ $(function(){
             async:false,
             success:function(){
                 $('body').html($('body').html()+ n + "<br>");
-                a();
+                setTimeout(a,500);
             }
         });
-        a();
+        
     }
+	a();
 });
 </script>
 </html>
